@@ -22,6 +22,7 @@ mod prelude {
 }
 
 mod auxv;
+mod register_info;
 mod base;
 mod breakpoints;
 mod catch_syscalls;
@@ -205,6 +206,7 @@ impl<T: Target, C: Connection> GdbStubImpl<T, C> {
             Command::ReverseStep(cmd) => self.handle_reverse_step(res, target, cmd),
             Command::MemoryMap(cmd) => self.handle_memory_map(res, target, cmd),
             Command::HostIo(cmd) => self.handle_host_io(res, target, cmd),
+            Command::RegisterInfo(cmd) => self.handle_register_info(res, target, cmd),
             Command::ExecFile(cmd) => self.handle_exec_file(res, target, cmd),
             Command::Auxv(cmd) => self.handle_auxv(res, target, cmd),
             // in the worst case, the command could not be parsed...

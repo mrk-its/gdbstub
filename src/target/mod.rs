@@ -654,6 +654,12 @@ pub trait Target {
         None
     }
 
+    /// Support for RegisterInfo.
+    #[inline(always)]
+    fn support_register_info(&mut self) -> Option<ext::register_info::RegisterInfoOps<'_, Self>> {
+        None
+    }
+
     /// Support for reading the current exec-file.
     #[inline(always)]
     fn support_exec_file(&mut self) -> Option<ext::exec_file::ExecFileOps<'_, Self>> {
