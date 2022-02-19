@@ -274,6 +274,10 @@ commands! {
         "qXfer:exec-file:read" => _qXfer_exec_file::qXferExecFileRead<'a>,
     }
 
+    register_info {
+        "qRegisterInfo" => _qRegisterInfo::qRegisterInfo,
+    }
+
     host_io use 'a {
         "vFile:open" => _vFile_open::vFileOpen<'a>,
         "vFile:close" => _vFile_close::vFileClose,
